@@ -1,0 +1,8 @@
+import { ALREADY_EXIST_ERROR, INVALID_DATA_ERROR, INVALID_LOGIN_ERROR, DOES_NOT_EXIST_ERROR } from '../../utils/textConstants.js';
+
+export const errors = {
+  [ALREADY_EXIST_ERROR]: 400,
+  [INVALID_DATA_ERROR]: 400,
+  [INVALID_LOGIN_ERROR]: 400,
+  [DOES_NOT_EXIST_ERROR]: 400
+};

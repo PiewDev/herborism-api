@@ -1,5 +1,6 @@
 import { createContainer, InjectionMode } from 'awilix';
 import { registerInventoryDependency } from '../inventory/inventoryDependencyInjection/registerInventoryDependency.js';
+import { registerUserDependency } from '../users/userDependencyInjection/registerUserDependency.js';
 import { mySQLDependency } from '../utils/mySQL/mySQLDependency.js';
 
 export const container = createContainer({
@@ -8,6 +9,7 @@ export const container = createContainer({
 
 export function settings () {
   registerInventoryDependency(container);
+  registerUserDependency(container);
   mySQLDependency(container);
 };
 

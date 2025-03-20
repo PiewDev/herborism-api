@@ -4,6 +4,7 @@ import cors from 'cors';
 import tryCatch from './src/utils/tryCatch.js';
 import { CORS_NOT_ALLOWED } from './src/utils/textConstants.js';
 import { createInventoryRouter } from './src/inventory/inventoryRoutes.js';
+import { createUserRouter } from './src/users/userRoutes.js';
 
 dotenv.config();
 
@@ -33,7 +34,8 @@ app.get(
     res.status(200).send('<h1>HERBORISM</h1>');
   }));
 
-app.use('/plants', createInventoryRouter());
+app.use('/elements', createInventoryRouter());
+app.use('/users', createUserRouter());
 
 const PORT = process.env.PORT || 4141;
 app.listen(process.env.PORT, () => {

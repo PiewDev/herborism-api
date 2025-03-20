@@ -11,8 +11,8 @@ export const createInventoryRouter = () => {
   // inventory plants routes
   // Server
   inventoryRouter.get('/server', InventoryController.getServerElements);
-  inventoryRouter.post('/server/plants', /* authenticateJWT,  authorizeRole([ADMIN]), */ InventoryController.addPlantToServer);
-  inventoryRouter.post('/server/extracts', /* authenticateJWT,  authorizeRole([ADMIN]), */ InventoryController.addExtractToServer);
+  inventoryRouter.post('/server/plants', authenticateJWT, authorizeRole([ADMIN]), InventoryController.addPlantToServer);
+  inventoryRouter.post('/server/extracts', authenticateJWT, authorizeRole([ADMIN]), InventoryController.addExtractToServer);
   // Users
   inventoryRouter.get('/users/:userName?', authenticateJWT, InventoryController.getUserElements);
   inventoryRouter.post('/users/:userName?', authenticateJWT, InventoryController.addElementToUser);
@@ -21,7 +21,7 @@ export const createInventoryRouter = () => {
   // inventory potions routes
   // Server
   inventoryRouter.get('/server/potions', InventoryController.getServerPotions);
-  inventoryRouter.post('/server/potions', /* authenticateJWT,  authorizeRole([ADMIN]), */ InventoryController.addPotionToServer);
+  inventoryRouter.post('/server/potions', authenticateJWT, authorizeRole([ADMIN]), InventoryController.addPotionToServer);
 
   // Users
   inventoryRouter.get('/users/:userName?/potions', authenticateJWT, InventoryController.getUserPotions);

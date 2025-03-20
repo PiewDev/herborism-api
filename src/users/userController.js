@@ -15,7 +15,6 @@ export class UserController {
 
   create = tryCatch(async (req, res) => {
     const { userName, password, role } = req.body;
-    console.log('userName:', userName, 'password:', password, 'role:', role);
     const newUser = await this.userService.create(userName, password, role);
     return res.status(201).json(newUser);
   });

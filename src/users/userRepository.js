@@ -12,12 +12,10 @@ export class UserRepository {
   async create (input) {
     try {
       const { userName, password, role } = input;
-      console.log('input', input);
       const rows = await this.mySQLConnection.executeQuery(
         'SELECT userName FROM users WHERE userName = (?);',
         [userName]
       );
-      console.log('rows', rows);
       if (rows.length > 0) {
         throw new AlreadyExistError(ALREADY_EXIST, USERS);
       }
